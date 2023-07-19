@@ -2,6 +2,7 @@ package main
 import(
        "fmt"
        "net/http"
+       "github.com/gorilla/mux"
        )
 func main(){
        http.HandleFunc("/", handler)
@@ -10,5 +11,11 @@ func main(){
 }
 
 func handler(w http.ResponseWriter, r *http.Request) {
- fmt.Fprintf(w, "Hello World!")
+ var name string
+ var title string      
+ fmt.println(w, "Enter title")
+ fmt.scanf("%s", &title)
+ fmt.println(w, "Enter name")
+ fmt.scanf("%s", &name)
+ fmt.println(w, "Hello", title, name)     
 }
